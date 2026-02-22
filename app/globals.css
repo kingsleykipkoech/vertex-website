@@ -1,40 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-space-grotesk);
 }
 
 :root {
-  --background: #050505;
-  --foreground: #ededed;
+  --bg-color: #05050A;
+  --text-color: #EDEDED;
+  --neon-blue: #00F0FF;
+  --neon-purple: #B026FF;
+  --cyber-border: rgba(0, 240, 255, 0.2);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-space-grotesk), sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-.cyber-card {
-  background: rgba(15, 15, 20, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  transition: all 0.3s ease;
+/* Base Utility Classes */
+.text-neon-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
-.cyber-card:hover {
-  border: 1px solid rgba(0, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-  transform: translateY(-2px);
+.text-neon-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
 }
 
-.cyber-glow-blue {
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+.bg-cyber-dark {
+  background-color: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(10px);
 }
 
-.bg-grid {
-  background-image: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+.border-cyber {
+  border: 1px solid var(--cyber-border);
+}
+
+/* Scifi Grid Background */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px var(--neon-blue); }
+  50% { box-shadow: 0 0 20px var(--neon-blue); }
+  100% { box-shadow: 0 0 5px var(--neon-blue); }
+}
+
+.hover-glow:hover {
+  animation: pulse-glow 2s infinite;
+  border-color: var(--neon-blue);
 }
