@@ -24,7 +24,7 @@ const POSTS = [
 
 export default function Blog() {
     return (
-        <div className="min-h-[calc(100vh-80px)] relative overflow-hidden bg-bg-color px-6 py-12">
+        <div className="min-h-screen relative overflow-hidden bg-bg-color px-6 pt-[120px] pb-12">
             <div className="max-w-4xl mx-auto relative z-10">
 
                 <header className="mb-20 text-center">

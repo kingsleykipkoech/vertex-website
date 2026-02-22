@@ -94,7 +94,7 @@ export default function HeroGraph() {
     }, []);
 
     return (
-        <div className="relative w-full h-[600px]" ref={containerRef}>
+        <div className="relative w-full h-full" ref={containerRef}>
             {/* Background Canvas for Lines */}
             <canvas
                 ref={canvasRef}

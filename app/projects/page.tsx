@@ -37,7 +37,7 @@ export default function Projects() {
     const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
     return (
-        <div className="min-h-[calc(100vh-80px)] relative overflow-hidden bg-bg-color px-6 py-12">
+        <div className="min-h-screen relative bg-bg-color flex flex-col items-center justify-center px-4 pt-[120px] pb-12">
             <div className="absolute inset-0 z-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
 
             <div className="max-w-6xl mx-auto relative z-10">

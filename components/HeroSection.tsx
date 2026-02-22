@@ -1,22 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 import { Inter, Manrope, Instrument_Serif, Cabin } from 'next/font/google';
-import { ChevronDown } from 'lucide-react';
 import HeroGraph from './HeroGraph';
+import PremiumNavBar from './PremiumNavBar';
 
 const inter = Inter({ subsets: ['latin'], weight: ['500'] });
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600'] });
 const instrument = Instrument_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 const cabin = Cabin({ subsets: ['latin'], weight: ['500'] });
-
-const Logo = () => (
-    <div className="flex items-center gap-1 font-bold text-2xl tracking-tighter cursor-default">
-        <span className="relative inline-block">
-            <span className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse">V</span>
-            <span className="absolute inset-0 text-cyan-500 blur-[2px] opacity-50">V</span>
-        </span>
-        <span className="text-white">ERTEX</span>
-    </div>
-);
 
 export default function HeroSection() {
     return (
@@ -55,41 +46,7 @@ export default function HeroSection() {
 
             {/* Main Content Container (z-index: 2) */}
             <div className="relative z-[2] w-full flex flex-col items-center">
-                {/* Navbar */}
-                <header className="w-full max-w-[1440px] mx-auto flex flex-row items-center justify-between"
-                    style={{ padding: '16px 120px', height: '102px' }}>
-
-                    <div className="flex flex-row items-center" style={{ gap: '80px' }}>
-                        <Logo />
-
-                        <nav className="flex flex-row items-center" style={{ gap: '10px' }}>
-                            <a href="#" className={`text-white decoration-none flex items-center ${manrope.className}`} style={{ padding: '4px 10px', fontSize: '14px', lineHeight: '22px', fontWeight: 500 }}>
-                                Home
-                            </a>
-                            <a href="#" className={`text-white decoration-none flex items-center ${manrope.className}`} style={{ padding: '4px 10px', fontSize: '14px', lineHeight: '22px', fontWeight: 500 }}>
-                                Nodes
-                                <ChevronDown className="text-white" style={{ marginLeft: '3px', width: '24px', height: '24px' }} />
-                            </a>
-                            <a href="#" className={`text-white decoration-none flex items-center ${manrope.className}`} style={{ padding: '4px 10px', fontSize: '14px', lineHeight: '22px', fontWeight: 500 }}>
-                                Mission
-                            </a>
-                            <a href="#" className={`text-white decoration-none flex items-center ${manrope.className}`} style={{ padding: '4px 10px', fontSize: '14px', lineHeight: '22px', fontWeight: 500 }}>
-                                Connect
-                            </a>
-                        </nav>
-                    </div>
-
-                    <div className="flex flex-row items-center" style={{ gap: '12px' }}>
-                        <button className={`bg-white text-[#171717] rounded-[8px] border border-[#d4d4d4] ${manrope.className}`}
-                            style={{ padding: '8px 16px', fontSize: '14px', lineHeight: '22px', fontWeight: 600 }}>
-                            Sign In
-                        </button>
-                        <button className={`bg-[#7b39fc] text-[#fafafa] rounded-[8px] ${manrope.className}`}
-                            style={{ padding: '8px 16px', fontSize: '14px', lineHeight: '22px', fontWeight: 600, boxShadow: '0px 4px 16px rgba(23,23,23,0.04)' }}>
-                            Join Network
-                        </button>
-                    </div>
-                </header>
+                <PremiumNavBar />
 
                 {/* Hero Content */}
                 <div className="flex flex-col items-center text-center w-full" style={{ maxWidth: '871px', marginTop: '162px' }}>
@@ -107,14 +64,14 @@ export default function HeroSection() {
                     </div>
 
                     <div className="flex flex-row items-center" style={{ gap: '22px', marginTop: '24px' }}>
-                        <button className={`bg-[#7b39fc] text-white rounded-[10px] ${cabin.className}`}
+                        <Link href="/projects" className={`bg-[#7b39fc] text-white rounded-[10px] no-underline ${cabin.className}`}
                             style={{ padding: '14px 24px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
                             Explore Nodes
-                        </button>
-                        <button className={`bg-[#2b2344] text-[#f6f7f9] rounded-[10px] border border-transparent ${cabin.className}`}
+                        </Link>
+                        <Link href="/blog" className={`bg-[#2b2344] text-[#f6f7f9] rounded-[10px] border border-transparent no-underline ${cabin.className}`}
                             style={{ padding: '14px 24px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
                             System Status
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

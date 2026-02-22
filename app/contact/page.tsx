@@ -2,7 +2,7 @@
 
 export default function Contact() {
     return (
-        <div className="min-h-[calc(100vh-80px)] relative bg-bg-color flex flex-col items-center justify-center px-4 py-12">
+        <div className="min-h-screen relative bg-bg-color flex flex-col items-center justify-center px-4 pt-[120px] pb-12">
 
             {/* Immersive overlay background */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neon-blue/10 via-bg-color to-bg-color pointer-events-none"></div>

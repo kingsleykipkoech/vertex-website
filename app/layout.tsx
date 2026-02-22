@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "A 6-member student group pushing the boundary of the digital frontier.",
 };
 
+import PremiumNavBar from "@/components/PremiumNavBar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} antialiased`}>
+        <PremiumNavBar />
         {children}
       </body>
     </html>
