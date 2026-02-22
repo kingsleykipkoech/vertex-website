@@ -52,8 +52,8 @@ export default function HeroGraph() {
 
             // Draw connecting lines
             ctx.beginPath();
-            ctx.strokeStyle = "rgba(0, 240, 255, 0.2)"; // Dim neon blue
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = "rgba(34, 211, 238, 0.4)"; // Cyan-400 with 40% opacity
+            ctx.lineWidth = 1.5;
 
             // Draw random network connections logic
             for (let i = 0; i < TEAM_MEMBERS.length; i++) {
@@ -72,9 +72,9 @@ export default function HeroGraph() {
                     const x2 = (m2.x / 100) * canvas.width + dx2;
                     const y2 = (m2.y / 100) * canvas.height + dy2;
 
-                    // Connect nodes if they are within a certain distance or just connect all for complex web
+                    // Connect nodes if they are within a certain distance
                     const dist = Math.hypot(x2 - x1, y2 - y1);
-                    if (dist < canvas.width * 0.6) {
+                    if (dist < canvas.width * 0.8) {
                         ctx.moveTo(x1, y1);
                         ctx.lineTo(x2, y2);
                     }

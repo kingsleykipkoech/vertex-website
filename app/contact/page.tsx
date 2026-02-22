@@ -1,6 +1,16 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Contact() {
+    const [status, setStatus] = useState<"idle" | "transmitting" | "success">("idle");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("transmitting");
+        setTimeout(() => setStatus("success"), 2000);
+    };
+
     return (
         <div className="min-h-screen relative bg-bg-color flex flex-col items-center justify-center px-4 pt-[120px] pb-12">
 
@@ -17,62 +27,81 @@ export default function Contact() {
 
                 <header className="text-center mb-10">
                     <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-widest text-white mb-2 font-mono">
-                        Connect to the Network
+                        {status === "success" ? "Transmission Received" : "Connect to the Network"}
                     </h1>
                     <p className="text-neon-blue font-mono text-sm tracking-widest">
-            // SECURE COMM-LINK ESTABLISHED //
+                        {status === "success" ? "// DATA ENCRYPTED & LOGGED //" : "// SECURE COMM-LINK ESTABLISHED //"}
                     </p>
                 </header>
 
-                <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="identifier" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Client Identifier (Name)</label>
-                        <input
-                            type="text"
-                            id="identifier"
-                            className="bg-black/50 border border-cyber focus:border-neon-blue text-white p-3 font-mono text-sm outline-none transition-colors w-full focus:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                            placeholder="Enter ID..."
-                        />
+                {status === "success" ? (
+                    <div className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-500">
+                        <div className="w-20 h-20 rounded-full border-2 border-neon-blue flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                            <span className="text-neon-blue text-4xl">✓</span>
+                        </div>
+                        <p className="text-gray-300 font-mono mb-8">Payload successfully integrated into the aggregate data stream.</p>
+                        <button
+                            onClick={() => setStatus("idle")}
+                            className="text-neon-purple font-mono text-xs uppercase tracking-widest hover:text-white transition-colors"
+                        >
+                            &gt; Start New Transmission
+                        </button>
                     </div>
+                ) : (
+                    <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="identifier" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Client Identifier (Name)</label>
+                            <input
+                                required
+                                type="text"
+                                id="identifier"
+                                className="bg-black/50 border border-cyber focus:border-neon-blue text-white p-3 font-mono text-sm outline-none transition-colors w-full focus:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
+                                placeholder="Enter ID..."
+                            />
+                        </div>
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="signal_channel" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Signal Channel (Email)</label>
-                        <input
-                            type="email"
-                            id="signal_channel"
-                            className="bg-black/50 border border-cyber focus:border-neon-purple text-white p-3 font-mono text-sm outline-none transition-colors w-full focus:shadow-[0_0_15px_rgba(176,38,255,0.2)]"
-                            placeholder="sys@domain.net"
-                        />
-                    </div>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="signal_channel" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Signal Channel (Email)</label>
+                            <input
+                                required
+                                type="email"
+                                id="signal_channel"
+                                className="bg-black/50 border border-cyber focus:border-neon-purple text-white p-3 font-mono text-sm outline-none transition-colors w-full focus:shadow-[0_0_15px_rgba(176,38,255,0.2)]"
+                                placeholder="sys@domain.net"
+                            />
+                        </div>
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="payload" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Data Payload (Message)</label>
-                        <textarea
-                            id="payload"
-                            rows={5}
-                            className="bg-black/50 border border-cyber focus:border-neon-blue text-white p-3 font-mono text-sm outline-none transition-colors w-full resize-none focus:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                            placeholder="Transmit message..."
-                        ></textarea>
-                    </div>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="payload" className="text-gray-400 font-mono text-xs uppercase tracking-widest">Data Payload (Message)</label>
+                            <textarea
+                                required
+                                id="payload"
+                                rows={5}
+                                className="bg-black/50 border border-cyber focus:border-neon-blue text-white p-3 font-mono text-sm outline-none transition-colors w-full resize-none focus:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
+                                placeholder="Transmit message..."
+                            ></textarea>
+                        </div>
 
-                    <button
-                        type="button"
-                        className="group relative w-full overflow-hidden bg-white/5 border border-neon-blue text-neon-blue hover:text-bg-color font-bold uppercase tracking-widest py-4 mt-4 transition-colors duration-300"
-                    >
-                        <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
-                            Transmit Data
-                        </span>
-                        {/* Animated hover fill */}
-                        <div className="absolute inset-0 bg-neon-blue translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
-                    </button>
-                </form>
+                        <button
+                            disabled={status === "transmitting"}
+                            type="submit"
+                            className="group relative w-full overflow-hidden bg-white/5 border border-neon-blue text-neon-blue hover:text-bg-color font-bold uppercase tracking-widest py-4 mt-4 transition-colors duration-300 disabled:opacity-50"
+                        >
+                            <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                                {status === "transmitting" ? "Transmitting..." : "Transmit Data"}
+                            </span>
+                            {/* Animated hover fill */}
+                            <div className="absolute inset-0 bg-neon-blue translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
+                        </button>
+                    </form>
+                )}
 
                 {/* Fake Terminal Output at bottom */}
                 <div className="mt-10 p-4 bg-black/80 border border-white/5 font-mono text-xs text-green-500/70 h-24 overflow-hidden relative">
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black to-transparent h-12 pointer-events-none"></div>
                     <p>&gt; System monitoring active...</p>
                     <p>&gt; Encryption protocols: RSA-2048 [OK]</p>
-                    <p className="animate-pulse">&gt; Waiting for transmission input...</p>
+                    <p className="animate-pulse">{status === "idle" ? "&gt; Waiting for transmission input..." : status === "transmitting" ? "&gt; Routing packets through decentralized relay..." : "&gt; Transmission complete. Standing by for next command."}</p>
                 </div>
 
             </div>
