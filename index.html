@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VERTEX — E-Lab Think Tank | ALU</title>
+    <meta name="description"
+        content="Vertex is an E-Lab think tank at ALU advocating digital security for East African SMEs." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- BOOT OVERLAY (disappears after animation) -->
+    <div class="boot-overlay" id="bootOverlay">
+        <div class="boot-inner">
+            <div class="boot-logo">V</div>
+            <div class="boot-lines" id="bootLines"></div>
+        </div>
+    </div>
+
+    <!-- ──────────────────────────────────────────
+     NAV
+────────────────────────────────────────── -->
+    <nav class="nav" id="nav">
+        <div class="nav-wrap">
+            <a href="#landing" class="nav-brand">
+                <span class="nb-v">TEAM </span><span class="nb-ertex">VERTEX</span>
+                <span class="nb-tag">E·LAB</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#landing" class="nl active">Home</a></li>
+                <li><a href="#identity" class="nl">Story</a></li>
+                <li><a href="#team" class="nl">Team</a></li>
+                <li><a href="#challenges" class="nl">Journey</a></li>
+                <li><a href="#projects" class="nl">Project</a></li>
+                <li><a href="#media" class="nl">Media</a></li>
+            </ul>
+            <button class="nav-burger" id="burger" aria-label="menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ──────────────────────────────────────────
+     LANDING — unique cinematic entry
+────────────────────────────────────────── -->
+    <section id="landing" class="section landing">
+        <!-- YouTube video background -->
+        <div id="yt-hero-bg"></div>
+        <!-- Fallback particle canvas (shown until YT loads) -->
+        <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+        <!-- Overlay for text readability -->
+        <div class="hero-video-overlay"></div>
+
+        <div class="landing-grid">
+            <!-- Left — large animated V -->
+            <div class="landing-left">
+                <div class="big-v-wrap">
+                    <svg class="big-v" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="vGrad" x1="0" y1="0" x2="200" y2="220" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#60a5fa" />
+                                <stop offset="50%" stop-color="#a78bfa" />
+                                <stop offset="100%" stop-color="#818cf8" />
+                            </linearGradient>
+                            <filter id="vGlow">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
+                                <feMerge>
+                                    <feMergeNode in="blur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <polyline points="10,10 100,200 190,10" stroke="url(#vGrad)" stroke-width="18"
+                            stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#vGlow)"
+                            class="v-path" pathLength="1" />
+                    </svg>
+                    <div class="v-pulse-ring r1"></div>
+                    <div class="v-pulse-ring r2"></div>
+                    <div class="v-pulse-ring r3"></div>
+                </div>
+            </div>
+
+            <!-- Right — text content -->
+            <div class="landing-right">
+                <div class="tag-line">
+                    <span class="tl-dot"></span>
+                    <span class="tl-text">E-LAB THINK TANK · ALU · 2026</span>
+                </div>
+
+                <h1 class="landing-title">
+                    <span class="lt-we">We are</span>
+                    <span class="lt-vertex" id="glitchTitle" data-text="VERTEX">VERTEX</span>
+                </h1>
+
+                <p class="landing-desc">
+                    Six students. One mission. We built <em>ShieldOS</em> —
+                    because <em>60% of Nairobi's SMEs face cyberattacks</em>
+                    with no budget, no IT staff, and no protection.
+                </p>
+
+                <div class="landing-stats">
+                    <div class="ls-item">
+                        <span class="ls-num" data-target="6">0</span>
+                        <span class="ls-lbl">Team Members</span>
+                    </div>
+                    <div class="ls-div"></div>
+                    <div class="ls-item">
+                        <span class="ls-num" data-target="60">0</span>
+                        <span class="ls-lbl">% SMEs At Risk</span>
+                    </div>
+                    <div class="ls-div"></div>
+                    <div class="ls-item">
+                        <span class="ls-num" data-target="5000">0</span>
+                        <span class="ls-lbl">E-Lab Points</span>
+                    </div>
+                </div>
+
+                <div class="landing-ctas">
+                    <a href="#projects" class="btn-primary">See ShieldOS</a>
+                    <a href="#identity" class="btn-outline">Our Story</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="scroll-cue">
+            <div class="sc-text">SCROLL</div>
+            <div class="sc-line"></div>
+        </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────
+     IDENTITY — Story + Mission + Problem + Solution
+────────────────────────────────────────── -->
+    <section id="identity" class="section identity-section">
+        <div class="container">
+
+            <div class="section-eyebrow">// OUR IDENTITY</div>
+            <h2 class="section-h2">Who We Are &amp; <br /><span class="grad-text">What We Built</span></h2>
+
+            <!-- Origin story ribbon -->
+            <div class="origin-ribbon">
+                <div class="or-item">
+                    <div class="or-icon">🗺️</div>
+                    <div class="or-label">Origin</div>
+                    <div class="or-val">Nairobi, Kenya</div>
+                </div>
+                <div class="or-connector"></div>
+                <div class="or-item">
+                    <div class="or-icon">🎓</div>
+                    <div class="or-label">Home</div>
+                    <div class="or-val">African Leadership University</div>
+                </div>
+                <div class="or-connector"></div>
+                <div class="or-item">
+                    <div class="or-icon">🔬</div>
+                    <div class="or-label">Program</div>
+                    <div class="or-val">ALU E-Lab 2026</div>
+                </div>
+                <div class="or-connector"></div>
+                <div class="or-item">
+                    <div class="or-icon">🎯</div>
+                    <div class="or-label">Focus</div>
+                    <div class="or-val">ShieldOS — Free OS for SMEs</div>
+                </div>
+            </div>
+
+            <!-- MPS Cards -->
+            <div class="mps-row">
+
+                <div class="mps-card reveal-card">
+                    <div class="mps-num">01</div>
+                    <div class="mps-icon-big">🎯</div>
+                    <h3>Mission</h3>
+                    <p>To advocate for digital security and literacy for Small Businesses across Nairobi — ensuring they can leverage technology to protect themselves from cyber vulnerability.</p>
+                    <blockquote>"Empowering Nairobi's SMEs Through ShieldOS"</blockquote>
+                </div>
+
+                <div class="mps-card reveal-card">
+                    <div class="mps-num">02</div>
+                    <div class="mps-icon-big">⚠️</div>
+                    <h3>Problem</h3>
+                    <p>Nairobi's SMEs face a rising tide of cyberattacks with zero budget, no IT staff, and no awareness to defend themselves. As more businesses go digital, the threat grows.</p>
+                    <ul class="mps-bullets">
+                        <li>60%+ of SMEs reported a breach in the last 3 years</li>
+                        <li>43% of all cyberattacks target small businesses</li>
+                        <li>Kenya lost <strong>KSh 29.9B</strong> to cybercrime in 2025</li>
+                        <li>60% of breached SMEs close within 6 months</li>
+                        <li>0% of SMEs we interviewed had a security budget</li>
+                    </ul>
+                </div>
+
+                <div class="mps-card reveal-card">
+                    <div class="mps-num">03</div>
+                    <div class="mps-icon-big">💡</div>
+                    <h3>Solution</h3>
+                    <p>ShieldOS — a hardened Linux OS that installs on any refurbished PC in 15 minutes via USB. No IT engineer. No subscription. Blocks phishing, encrypts data, whitelists apps automatically.</p>
+                    <div class="proto-pill">
+                        <span class="pp-dot"></span>
+                        <span>ShieldOS v1.0 — In Development</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Values strip -->
+            <div class="values-strip">
+                <div class="vs-label">Our Values</div>
+                <div class="vs-items">
+                    <div class="vs-item"><span>🤝</span> Teamwork</div>
+                    <span class="vs-sep">·</span>
+                    <div class="vs-item"><span>✅</span> Integrity</div>
+                    <span class="vs-sep">·</span>
+                    <div class="vs-item"><span>🔐</span> Security</div>
+                    <span class="vs-sep">·</span>
+                    <div class="vs-item"><span>🚀</span> Innovation</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────
+     TEAM — with cyberpunk avatar images
+────────────────────────────────────────── -->
+    <section id="team" class="section team-section">
+        <div class="container">
+
+            <div class="section-eyebrow">// THE TEAM</div>
+            <h2 class="section-h2">Six Minds.<br /><span class="grad-text">One Vision.</span></h2>
+            <p class="section-sub">Six students. Six roles. One mission — building ShieldOS to protect Nairobi's SMEs.</p>
+
+            <!-- Member cards grid -->
+            <div class="members-list">
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-kingsley.png" alt="Kingsley Kipkoech" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Designing resilient systems to protect SMEs from emerging threats. Passionate about systems thinking and secure architecture that scales.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">Security Architect</div>
+                        <h3 class="mc-name">Kingsley Kipkoech</h3>
+                        <div class="mc-skills"><span>Network Security</span><span>Systems Design</span><span>Threat Modeling</span></div>
+                    </div>
+                </div>
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-kayitare.png" alt="Kayitare Anakin Libery" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Implementing robust infrastructure for secure digital environments. Expanding digital literacy across East Africa one system at a time.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">Systems Engineer</div>
+                        <h3 class="mc-name">Kayitare Anakin Libery</h3>
+                        <div class="mc-skills"><span>Infrastructure</span><span>DevSecOps</span><span>Digital Literacy</span></div>
+                    </div>
+                </div>
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-kelvin.png" alt="Kelvin Munene Nyagah" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Analyzing threat vectors and interpreting cybersecurity incidents through data — turning raw signals into actionable intelligence for SMEs.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">Data Analyst</div>
+                        <h3 class="mc-name">Kelvin Munene Nyagah</h3>
+                        <div class="mc-skills"><span>Data Analysis</span><span>Threat Intel</span><span>Visualization</span></div>
+                    </div>
+                </div>
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-kabi.png" alt="Kabi Kabi Jean Paul II" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Bridging technology and business compliance. Serving as the voice that makes digital security policies accessible and actionable for SMEs.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">Policy Advocate</div>
+                        <h3 class="mc-name">Kabi Kabi Jean Paul II</h3>
+                        <div class="mc-skills"><span>Cyber Policy</span><span>Compliance</span><span>Communication</span></div>
+                    </div>
+                </div>
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-kethia.png" alt="Kethia Keza" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Crafting intuitive tools to boost digital literacy. Making security accessible and beautiful — because design changes how people think about safety.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">UI/UX &amp; Education</div>
+                        <h3 class="mc-name">Kethia Keza</h3>
+                        <div class="mc-skills"><span>UX Design</span><span>Education</span><span>Accessibility</span></div>
+                    </div>
+                </div>
+
+                <div class="mc">
+                    <div class="mc-photo">
+                        <img src="member-mpaka.png" alt="Mpaka Sano Lemuel" class="mc-img" />
+                        <div class="mc-overlay">
+                            <p class="mc-bio">Monitoring the frontline against phishing and ransomware. Deep-diving into adversarial techniques to build smarter defenses for real businesses.</p>
+                        </div>
+                    </div>
+                    <div class="mc-body">
+                        <div class="mc-role">Threat Researcher</div>
+                        <h3 class="mc-name">Mpaka Sano Lemuel</h3>
+                        <div class="mc-skills"><span>Threat Research</span><span>Phishing Analysis</span><span>Ransomware</span></div>
+                    </div>
+                </div>
+
+            </div><!-- /members-list -->
+        </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────
+     CHALLENGES — horizontal scroll timeline
+────────────────────────────────────────── -->
+    <section id="challenges" class="section challenges-section">
+        <div class="container">
+
+            <div class="section-eyebrow">// E-LAB JOURNEY</div>
+            <h2 class="section-h2">Our <span class="grad-text">6 Challenges</span></h2>
+            <p class="section-sub">Every challenge pushed us further — here's our full story.</p>
+
+            <div class="ch-timeline">
+
+                <div class="ch-line"></div>
+
+                <div class="ch-item ci-left reveal-card">
+                    <div class="ci-node">01</div>
+                    <div class="ci-card">
+                        <div class="ci-badge done">✓ Completed</div>
+                        <h3>Mission Voyage</h3>
+                        <p>Our first challenge: defining who we are. We introduced ourselves, connected personal values
+                            to a shared identity — the <strong>birth of Vertex.</strong></p>
+                        <div class="ci-visual">
+                            <div class="ci-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/H1w128tFJlA?modestbranding=1&rel=0"
+                                    title="Challenge 1 — Mission Voyage" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <div class="ci-insight">"We are the intersection where our tech skills meet real-world
+                            problems."</div>
+                    </div>
+                </div>
+
+                <div class="ch-item ci-right reveal-card">
+                    <div class="ci-node">02</div>
+                    <div class="ci-card">
+                        <div class="ci-badge done">✓ Completed</div>
+                        <h3>Problem Discovery</h3>
+                        <p>We researched the core problem: SMEs in East Africa face a dangerous lack of cybersecurity
+                            knowledge, exposing them to threats they can't see coming.</p>
+                        <div class="ci-stats">
+                            <div class="ci-stat"><span>43%</span><small>of cyberattacks target SMEs</small></div>
+                            <div class="ci-stat"><span>60%</span><small>close within 6mo of a breach</small></div>
+                        </div>
+                        <div class="ci-insight">"East Africa's SMEs are the backbone of the economy — and the most
+                            vulnerable."</div>
+                        <a href="https://youtu.be/xd08N1llFcM" target="_blank" class="pitch-link">Watch Challenge 02 Video →</a>
+                    </div>
+                </div>
+
+                <div class="ch-item ci-left reveal-card">
+                    <div class="ci-node">03</div>
+                    <div class="ci-card">
+                        <div class="ci-badge done">✓ Completed</div>
+                        <h3>Ideation &amp; Solution Design</h3>
+                        <p>Armed with research, we ran ideation sprints. We mapped user journeys, designed platform
+                            features, and settled on a practical, accessible cybersecurity tool.</p>
+                        <div class="ci-features">
+                            <span>🔐 Security Modules</span>
+                            <span>🎯 Phishing Sim</span>
+                            <span>📋 Policy Templates</span>
+                            <span>📖 Hygiene Guides</span>
+                        </div>
+                        <div class="ci-insight">"The best security tool is one that non-technical users actually want to
+                            use."</div>
+                        <a href="https://youtu.be/xCvrbjv2gZg" target="_blank" class="pitch-link">Watch Challenge 03 Video →</a>
+                    </div>
+                </div>
+
+                <div class="ch-item ci-right reveal-card">
+                    <div class="ci-node">04</div>
+                    <div class="ci-card">
+                        <div class="ci-badge done">✓ Completed</div>
+                        <h3>Prototype Development</h3>
+                        <p>We went from ideas to a tangible prototype. Each member applied their skills to build the
+                            first version of the Vertex SME Cybersecurity Awareness Portal.</p>
+                        <div class="proto-screen-mini">
+                            <div class="psm-top"><span></span><span></span><span></span></div>
+                            <div class="psm-body">
+                                <div class="psm-url">ShieldOS v1.0 — Boot</div>
+                                <div class="psm-heading">🛡️ System Secure</div>
+                                <div class="psm-tags"><span>Firewall Active ✓</span><span>Encryption ON ✓</span><span>Phishing Blocked ✓</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ci-insight">"Building something real — even rough — teaches you more than any plan."
+                        </div>
+                        <a href="https://youtu.be/shjAxQlwrJ0" target="_blank" class="pitch-link">Watch Challenge 04 Video →</a>
+                    </div>
+                </div>
+
+                <div class="ch-item ci-left reveal-card">
+                    <div class="ci-node">05</div>
+                    <div class="ci-card">
+                        <div class="ci-badge done">✓ Completed</div>
+                        <h3>Pitch &amp; Presentation</h3>
+                        <p>We delivered a compelling pitch: the problem, our solution, our impact — all in front of
+                            E-Lab faculty and peers at ALU, sharpening our communication skills.</p>
+                        <div class="ci-pitch">
+                            <div class="pitch-q">"Empowering Small Businesses Through Technology"</div>
+                            <a href="https://docs.google.com/presentation/d/1hJy4ZRLpppR33eyDaAQ4vWzEkBobtzqj/edit"
+                                target="_blank" class="pitch-link">View Slides →</a>
+                        </div>
+                        <div class="ci-insight">"A good idea only creates impact when communicated effectively."</div>
+                    </div>
+                </div>
+
+                <div class="ch-item ci-right reveal-card challenge-final">
+                    <div class="ci-node ci-node-gold">06</div>
+                    <div class="ci-card ci-card-gold">
+                        <div class="ci-badge active">⚡ Active — You're Here</div>
+                        <h3>Digital Print 🌐</h3>
+                        <p>The final challenge: creating a digital portfolio to document our entire E-Lab journey. This
+                            site <em>is</em> our Digital Print — our public proof of work.</p>
+                        <div class="ci-dp-box">
+                            <div class="dp-label">CHALLENGE 06</div>
+                            <div class="dp-title">DIGITAL PRINT</div>
+                            <div class="dp-desc">In the 21st century, digital literacy and presentation skills are
+                                imperative — especially for those seeking to positively impact Africa.</div>
+                            <div class="dp-pts">5,000 pts · E-Lab 2024/25</div>
+                        </div>
+                        <div class="ci-insight">"Your digital footprint is your first impression — make it count."</div>
+                    </div>
+                </div>
+
+            </div><!-- /ch-timeline -->
+        </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+
+            <div class="section-eyebrow">// OUR PROJECT</div>
+            <h2 class="section-h2">What We <span class="grad-text">Built</span></h2>
+            <p class="section-sub">ShieldOS — a hardened Linux OS built specifically to protect Nairobi's small businesses from cyberattacks. Free. Offline. Ready in 15 minutes.</p>
+
+            <!-- Impact numbers -->
+            <div class="shield-stats">
+                <div class="ss-item">
+                    <div class="ss-num">15 min</div>
+                    <div class="ss-lbl">USB Install Time</div>
+                </div>
+                <div class="ss-div"></div>
+                <div class="ss-item">
+                    <div class="ss-num">KSh 0</div>
+                    <div class="ss-lbl">Cost to Any SME</div>
+                </div>
+                <div class="ss-div"></div>
+                <div class="ss-item">
+                    <div class="ss-num">29.9B</div>
+                    <div class="ss-lbl">KSh Lost to Cybercrime</div>
+                </div>
+                <div class="ss-div"></div>
+                <div class="ss-item">
+                    <div class="ss-num">60%+</div>
+                    <div class="ss-lbl">Nairobi SMEs Breached</div>
+                </div>
+            </div>
+
+            <!-- Main showcase -->
+            <div class="shield-showcase reveal-card">
+
+                <!-- Left: info -->
+                <div class="shield-info">
+                    <div class="shield-badge">
+                        <span class="sb-dot"></span>
+                        <span>ShieldOS v1.0 — In Active Development</span>
+                    </div>
+                    <h3 class="shield-title">ShieldOS</h3>
+                    <p class="shield-desc">A hardened Linux operating system that installs on any refurbished PC via a USB drive. No IT engineer needed. No subscription. No internet required to run.</p>
+                    <p class="shield-desc">Designed from the ground up for Nairobi's small business owners — people with no technical background who just need their business to stay safe.</p>
+
+                    <div class="shield-features">
+                        <div class="sf-item">
+                            <span class="sf-icon">🛡️</span>
+                            <div>
+                                <div class="sf-name">Phishing Blocker</div>
+                                <div class="sf-desc">Blocks known phishing domains at the OS level — before the browser even loads.</div>
+                            </div>
+                        </div>
+                        <div class="sf-item">
+                            <span class="sf-icon">🔐</span>
+                            <div>
+                                <div class="sf-name">Full Disk Encryption</div>
+                                <div class="sf-desc">Business data encrypted by default. If the PC is stolen, the data is safe.</div>
+                            </div>
+                        </div>
+                        <div class="sf-item">
+                            <span class="sf-icon">📋</span>
+                            <div>
+                                <div class="sf-name">App Whitelisting</div>
+                                <div class="sf-desc">Only approved applications run. Ransomware and malware cannot execute.</div>
+                            </div>
+                        </div>
+                        <div class="sf-item">
+                            <span class="sf-icon">🔄</span>
+                            <div>
+                                <div class="sf-name">Auto Security Updates</div>
+                                <div class="sf-desc">Security patches applied automatically when internet is available.</div>
+                            </div>
+                        </div>
+                        <div class="sf-item">
+                            <span class="sf-icon">📖</span>
+                            <div>
+                                <div class="sf-name">Built-in SME Guide</div>
+                                <div class="sf-desc">Plain-language security manual pre-installed — no internet needed to read it.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shield-stack">
+                        <span>Linux</span><span>Ubuntu Base</span><span>AppArmor</span><span>LUKS Encryption</span><span>UFW Firewall</span>
+                    </div>
+                </div>
+
+                <!-- Right: terminal mockup -->
+                <div class="shield-terminal">
+                    <div class="st-bar">
+                        <div class="st-dots"><span></span><span></span><span></span></div>
+                        <div class="st-title">ShieldOS v1.0 — Boot Sequence</div>
+                    </div>
+                    <div class="st-body">
+                        <div class="st-line boot">ShieldOS v1.0 — ALU E-Lab 2026</div>
+                        <div class="st-line dim">Built by Team Vertex · Nairobi, Kenya</div>
+                        <div class="st-line gap">─────────────────────────────────</div>
+                        <div class="st-line ok"><span class="st-label">SYS</span> Kernel hardening <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line ok"><span class="st-label">FW </span> UFW Firewall active <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line ok"><span class="st-label">ENC</span> Disk encryption <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line ok"><span class="st-label">APP</span> Whitelist loaded <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line ok"><span class="st-label">PHI</span> Phishing filter <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line ok"><span class="st-label">UPD</span> Security patches <span class="st-ok">[ OK ]</span></div>
+                        <div class="st-line gap">─────────────────────────────────</div>
+                        <div class="st-line ready">✓ All systems secure. ShieldOS ready.</div>
+                        <div class="st-line prompt">$ <span class="st-cursor">_</span></div>
+                    </div>
+                    <div class="st-footer">
+                        <span class="stf-item">🛡️ Protected</span>
+                        <span class="stf-item">🔐 Encrypted</span>
+                        <span class="stf-item">⚡ Active</span>
+                    </div>
+                </div>
+
+            </div><!-- /shield-showcase -->
+
+        </div>
+    </section>
+
+    <!-- ── MEDIA ── -->
+    <section id="media" class="section challenges-section">
+        <div class="container">
+
+            <div class="section-eyebrow">// OUR VIDEOS</div>
+            <h2 class="section-h2">Watch Our <span class="grad-text">Journey</span></h2>
+            <p class="section-sub">All 5 of our E-Lab challenge videos — from our first introduction to our final pitch.</p>
+
+            <!-- 5-video grid: 1 featured + 4 smaller -->
+            <div class="video-grid">
+
+                <div class="vg-featured reveal-card">
+                    <div class="vg-label">// LATEST · PITCH VIDEO</div>
+                    <div class="vg-embed">
+                        <iframe src="https://www.youtube.com/embed/G8_igK93bB0?modestbranding=1&rel=0"
+                            title="Challenge 5 — Pitch & Presentation" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="vg-title">Challenge 05 — Pitch &amp; Presentation</div>
+                </div>
+
+                <div class="vg-small-grid">
+
+                    <div class="vg-small reveal-card">
+                        <div class="vg-embed">
+                            <iframe src="https://www.youtube.com/embed/H1w128tFJlA?modestbranding=1&rel=0"
+                                title="Challenge 1 — Mission Voyage" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="vg-title">Challenge 01 — Mission Voyage</div>
+                    </div>
+
+                    <div class="vg-small reveal-card">
+                        <div class="vg-embed">
+                            <iframe src="https://www.youtube.com/embed/xd08N1llFcM?modestbranding=1&rel=0"
+                                title="Challenge 2 — Problem Discovery" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="vg-title">Challenge 02 — Problem Discovery</div>
+                    </div>
+
+                    <div class="vg-small reveal-card">
+                        <div class="vg-embed">
+                            <iframe src="https://www.youtube.com/embed/xCvrbjv2gZg?modestbranding=1&rel=0"
+                                title="Challenge 3 — Ideation & Solution Design" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="vg-title">Challenge 03 — Ideation &amp; Solution Design</div>
+                    </div>
+
+                    <div class="vg-small reveal-card">
+                        <div class="vg-embed">
+                            <iframe src="https://www.youtube.com/embed/shjAxQlwrJ0?modestbranding=1&rel=0"
+                                title="Challenge 4 — Prototype Development" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="vg-title">Challenge 04 — Prototype Development</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Follow us -->
+            <div class="follow-row reveal-card">
+                <div class="fr-label">// FOLLOW US</div>
+                <div class="fr-cards">
+
+                    <a href="https://www.youtube.com/channel/UCPRgX_QsDBfx6Khj46stI2w" target="_blank" class="fr-card fr-yt">
+                        <span class="fr-icon">▶</span>
+                        <div>
+                            <div class="fr-name">@vertex_alu</div>
+                            <div class="fr-sub">Subscribe on YouTube</div>
+                        </div>
+                        <span class="fr-cta">Subscribe →</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/vertex_alu" target="_blank" class="fr-card fr-ig">
+                        <span class="fr-icon">📸</span>
+                        <div>
+                            <div class="fr-name">@vertex_alu</div>
+                            <div class="fr-sub">Follow on Instagram</div>
+                        </div>
+                        <span class="fr-cta">Follow →</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="sf-inner">
+                <div class="sf-brand">
+                    <span class="nb-v">V</span><span class="nb-ertex">ERTEX</span>
+                </div>
+                <p class="sf-sub">E-Lab Think Tank · African Leadership University · 2024/2025</p>
+                <div class="sf-links">
+                    <a href="https://www.instagram.com/vertex_alu" target="_blank">📸 Instagram</a>
+                    <a href="https://www.youtube.com/channel/UCPRgX_QsDBfx6Khj46stI2w" target="_blank">▶ YouTube</a>
+                </div>
+                <div class="sf-copy">Built by Team Vertex · E-Lab Challenge 06 — Digital Print</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+
+</html>
