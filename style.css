@@ -13,26 +13,30 @@
 }
 
 :root {
-    --bg: #080c14;
-    --bg-card: #0d1421;
-    --bg-card2: #111827;
-    --border: rgba(255, 255, 255, 0.06);
-    --border-hi: rgba(59, 130, 246, 0.3);
+    --bg: #030712;
+    --bg-card: rgba(17, 24, 39, 0.65);
+    --bg-card2: rgba(31, 41, 55, 0.5);
+    --glass-blur: blur(16px);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hi: rgba(56, 189, 248, 0.4);
     --txt: #f8fafc;
     --txt-2: #94a3b8;
-    --txt-3: #475569;
-    --cyan: #3b82f6;
-    --purple: #6366f1;
-    --green: #10b981;
-    --gold: #f59e0b;
+    --txt-3: #64748b;
+    --cyan: #38bdf8;
+    --purple: #818cf8;
+    --pink: #e879f9;
+    --green: #34d399;
+    --gold: #fbbf24;
     --sans: 'Space Grotesk', sans-serif;
     --mono: 'JetBrains Mono', monospace;
     --head: 'Syne', sans-serif;
-    --nav-h: 68px;
-    --r: 14px;
-    --r-sm: 8px;
-    --ease: cubic-bezier(0.4, 0, 0.2, 1);
-    --t: 0.3s;
+    --nav-h: 72px;
+    --r: 16px;
+    --r-sm: 10px;
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+    --t: 0.4s;
+    --glow-cyan: 0 0 20px rgba(56, 189, 248, 0.3);
+    --glow-purple: 0 0 20px rgba(129, 140, 248, 0.3);
 }
 
 html {
@@ -263,10 +267,11 @@ body:has(button:hover) .cursor {
 }
 
 .nav.scrolled {
-    background: rgba(12, 17, 29, 0.92);
-    backdrop-filter: blur(24px);
+    background: rgba(3, 7, 18, 0.75);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border-bottom-color: var(--border);
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .nav-wrap {
@@ -769,7 +774,7 @@ body:has(button:hover) .cursor {
 .btn-primary:hover {
     transform: translateY(-3px);
     background: #1d4ed8;
-    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+    box-shadow: var(--glow-cyan), 0 8px 30px rgba(37, 99, 235, 0.5);
 }
 
 .btn-outline {
@@ -2573,4 +2578,37 @@ body:has(button:hover) .cursor {
 
 @media (max-width: 600px) {
     .vg-small-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Premium Glassmorphism ── */
+.mps-card, .mc, .ci-card, .shield-showcase, .vg-featured, .vg-small, .fr-card, .project-card, .floating-card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.prototype-frame {
+    padding: 0;
+    overflow: hidden;
+}
+.field-insight {
+    background: rgba(56, 189, 248, 0.08);
+    border-left: 3px solid var(--cyan);
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--txt-2);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.fi-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
