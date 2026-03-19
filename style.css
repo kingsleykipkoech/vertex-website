@@ -1204,122 +1204,90 @@ body:has(button:hover) .cursor {
     letter-spacing: 0.2em;
 }
 
-/* ── Member Cards — portrait grid ── */
-.members-list {
+/* ── Member Cards (ThinkCell Style) ── */
+.tc-team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 30px;
 }
 
-.mc {
-    background: var(--bg-card);
+.tc-team-card {
+    background: var(--bg-card2);
     border: 1px solid var(--border);
     border-radius: var(--r);
     overflow: hidden;
-    cursor: none;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+    transition: transform var(--t), box-shadow var(--t), border-color var(--t);
     display: flex;
     flex-direction: column;
 }
 
-.mc:hover {
-    transform: translateY(-6px);
-    border-color: color-mix(in srgb, var(--a) 50%, transparent);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4),
-                0 0 0 1px color-mix(in srgb, var(--a) 15%, transparent);
+.tc-team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--border-hi);
 }
 
-/* Photo */
-.mc-photo {
-    position: relative;
+.tc-photo-wrap {
+    width: 100%;
+    height: 320px;
     overflow: hidden;
-    height: 300px;
-    flex-shrink: 0;
+    position: relative;
 }
 
-.mc-img {
+.tc-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
-    display: block;
-    transition: transform 0.5s var(--ease);
+    object-position: center 20%;
+    transition: transform 0.6s var(--ease);
 }
 
-.mc:hover .mc-img {
+.tc-team-card:hover .tc-photo {
     transform: scale(1.05);
 }
 
-/* Bio overlay — slides up on hover */
-.mc-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top,
-        rgba(6,10,20,0.97) 0%,
-        rgba(6,10,20,0.85) 50%,
-        rgba(6,10,20,0.2) 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
-}
-
-.mc:hover .mc-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mc-bio {
-    font-size: 12px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.65;
-    margin: 0;
-}
-
-/* Bottom info bar */
-.mc-body {
-    padding: 18px 20px 20px;
-    border-top: 2px solid var(--a, var(--cyan));
+.tc-body {
+    padding: 30px 24px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    flex: 1;
+    flex-grow: 1;
+    background: linear-gradient(to bottom, rgba(17, 24, 39, 0.4), var(--bg-card));
 }
 
-.mc-role {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--a, var(--cyan));
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-}
-
-.mc-name {
+.tc-name {
     font-family: var(--head);
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.35rem;
     color: var(--txt);
-    margin: 0;
-    line-height: 1.2;
+    margin-bottom: 6px;
+    font-weight: 700;
 }
 
-.mc-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 4px;
-}
-
-.mc-skills span {
-    font-size: 9px;
+.tc-role {
     font-family: var(--mono);
-    padding: 3px 10px;
-    border-radius: 100px;
-    background: color-mix(in srgb, var(--a) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--a) 20%, transparent);
-    color: color-mix(in srgb, var(--a) 80%, white);
+    font-size: 0.8rem;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.tc-bio {
+    font-size: 0.95rem;
+    color: var(--txt-2);
+    line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .tc-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tc-team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ── CHALLENGES SECTION (ThinkCell Structure) ── */
