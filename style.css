@@ -1291,52 +1291,82 @@ body:has(button:hover) .cursor {
     color: color-mix(in srgb, var(--a) 80%, white);
 }
 
-/* ── CHALLENGES SECTION ── */
+/* ── CHALLENGES SECTION (ThinkCell Structure) ── */
 .challenges-section {
     background: var(--bg);
 }
 
-.ch-timeline {
-    position: relative;
+.tc-challenges-grid {
     padding: 20px 0;
 }
 
-.ch-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    transform: translateX(-50%);
-    background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.5), transparent);
-    opacity: 0.4;
-}
-
-.ch-item {
+.tc-split-block {
     display: grid;
-    grid-template-columns: 1fr 60px 1fr;
-    align-items: start;
-    gap: 0;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 120px;
 }
 
-.ci-left .ci-node {
-    grid-column: 2;
+.tc-split-block.alt-layout .tcs-text {
+    order: 2;
 }
 
-.ci-left .ci-card {
-    grid-column: 1;
-    grid-row: 1;
-    padding-right: 40px;
+.tc-split-block.alt-layout .tcs-visual {
+    order: 1;
 }
 
-.ci-right .ci-card {
-    grid-column: 3;
-    padding-left: 40px;
+.tcs-text {
+    display: flex;
+    flex-direction: column;
 }
 
-.ci-right .ci-node {
-    grid-column: 2;
+.tcs-visual {
+    position: relative;
+    border-radius: var(--r);
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.tcs-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.tcs-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--cyan);
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 3px solid var(--cyan);
+}
+
+.tcs-insight {
+    background: rgba(10, 22, 40, 0.95);
+    padding: 16px 24px;
+    font-size: 0.9rem;
+    color: var(--txt-2);
+    border-top: 1px solid var(--border);
+    font-style: italic;
+}
+
+@media (max-width: 960px) {
+    .tc-split-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+    .tc-split-block.alt-layout .tcs-text {
+        order: 1;
+    }
+    .tc-split-block.alt-layout .tcs-visual {
+        order: 2;
+    }
 }
 
 .ci-node {
@@ -1356,7 +1386,7 @@ body:has(button:hover) .cursor {
     box-shadow: 0 0 20px color-mix(in srgb, var(--nc) 30%, transparent);
     position: relative;
     z-index: 2;
-    margin: 0 auto;
+    margin: 0 0 24px 0;
     transition: box-shadow 0.4s, transform 0.3s;
 }
 
