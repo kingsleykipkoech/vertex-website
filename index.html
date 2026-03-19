@@ -64,31 +64,11 @@
         <div class="hero-video-overlay"></div>
 
         <div class="landing-grid">
-            <!-- Left — large animated V -->
+            <!-- Left — Hero Images -->
             <div class="landing-left">
-                <div class="big-v-wrap">
-                    <svg class="big-v" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="vGrad" x1="0" y1="0" x2="200" y2="220" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#60a5fa" />
-                                <stop offset="50%" stop-color="#a78bfa" />
-                                <stop offset="100%" stop-color="#818cf8" />
-                            </linearGradient>
-                            <filter id="vGlow">
-                                <feGaussianBlur stdDeviation="4" result="blur" />
-                                <feMerge>
-                                    <feMergeNode in="blur" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <polyline points="10,10 100,200 190,10" stroke="url(#vGrad)" stroke-width="18"
-                            stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#vGlow)"
-                            class="v-path" pathLength="1" />
-                    </svg>
-                    <div class="v-pulse-ring r1"></div>
-                    <div class="v-pulse-ring r2"></div>
-                    <div class="v-pulse-ring r3"></div>
+                <div class="hero-brand">
+                    <img src="images/logo.png" alt="Vertex Logo" class="hl-logo" onerror="this.style.display='none'"/>
+                    <img src="images/group.jpg" alt="Team Vertex" class="hl-group pointer-glow" onerror="this.style.display='none'"/>
                 </div>
             </div>
 
@@ -100,14 +80,12 @@
                 </div>
 
                 <h1 class="landing-title">
-                    <span class="lt-we">We are</span>
-                    <span class="lt-vertex" id="glitchTitle" data-text="VERTEX">VERTEX</span>
+                    <span class="lt-we">We did not</span>
+                    <span class="lt-vertex" id="glitchTitle" data-text="WAIT FOR IT.">WAIT FOR IT.</span>
                 </h1>
 
-                <p class="landing-desc">
-                    Six students. One mission. We built <em>ShieldOS</em> —
-                    because <em>60% of Nairobi's SMEs face cyberattacks</em>
-                    with no budget, no IT staff, and no protection.
+                <p class="landing-desc" style="font-size: 1.15rem; color: var(--txt-2);">
+                    We are six students who came together with one mission. We didn't have professional backgrounds, but we saw a massive problem: our SMEs are deeply vulnerable. So we learned, we built, and we delivered <em>ShieldOS</em>.
                 </p>
 
                 <div class="landing-stats">
@@ -144,95 +122,50 @@
     <!-- ──────────────────────────────────────────
      IDENTITY — Story + Mission + Problem + Solution
 ────────────────────────────────────────── -->
-    <section id="identity" class="section identity-section">
+    <section id="identity" class="section problem-section">
         <div class="container">
+            <div class="section-eyebrow">// THE PROBLEM</div>
+            <h2 class="section-h2">Nairobi's SMEs Are <br /><span class="grad-text">Under Attack</span></h2>
+            <p class="section-sub">We did not read this in a report. We heard it from the people living it.</p>
 
-            <div class="section-eyebrow">// OUR IDENTITY</div>
-            <h2 class="section-h2">Who We Are &amp; <br /><span class="grad-text">What We Built</span></h2>
-
-            <!-- Origin story ribbon -->
-            <div class="origin-ribbon">
-                <div class="or-item">
-                    <div class="or-icon">🗺️</div>
-                    <div class="or-label">Origin</div>
-                    <div class="or-val">Nairobi, Kenya</div>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-large">60%+</span>
+                    <span class="stat-desc">of Nairobi SMEs reported phishing, ransomware or a data breach in the last 3 years</span>
                 </div>
-                <div class="or-connector"></div>
-                <div class="or-item">
-                    <div class="or-icon">🎓</div>
-                    <div class="or-label">Home</div>
-                    <div class="or-val">African Leadership University</div>
+                <div class="stat-card">
+                    <span class="stat-large">KSh 29B</span>
+                    <span class="stat-desc">lost annually to cybercrime across Kenya in 2025</span>
                 </div>
-                <div class="or-connector"></div>
-                <div class="or-item">
-                    <div class="or-icon">🔬</div>
-                    <div class="or-label">Program</div>
-                    <div class="or-val">ALU E-Lab 2026</div>
+                <div class="stat-card">
+                    <span class="stat-large">0%</span>
+                    <span class="stat-desc">of SMEs we interviewed had a dedicated cybersecurity budget</span>
                 </div>
-                <div class="or-connector"></div>
-                <div class="or-item">
-                    <div class="or-icon">🎯</div>
-                    <div class="or-label">Focus</div>
-                    <div class="or-val">ShieldOS — Free OS for SMEs</div>
+                <div class="stat-card">
+                    <span class="stat-large">842M</span>
+                    <span class="stat-desc">AI-powered attack detections globally in late 2025</span>
                 </div>
             </div>
 
-            <!-- MPS Cards -->
-            <div class="mps-row">
-
-                <div class="mps-card reveal-card">
-                    <div class="mps-num">01</div>
-                    <div class="mps-icon-big">🎯</div>
-                    <h3>Mission</h3>
-                    <p>To advocate for digital security and literacy for Small Businesses across Nairobi — ensuring they can leverage technology to protect themselves from cyber vulnerability.</p>
-                    <blockquote>"Empowering Nairobi's SMEs Through ShieldOS"</blockquote>
-                </div>
-
-                <div class="mps-card reveal-card">
-                    <div class="mps-num">02</div>
-                    <div class="mps-icon-big">⚠️</div>
-                    <h3>Problem</h3>
-                    <p>Nairobi's SMEs face a rising tide of cyberattacks with zero budget, no IT staff, and no awareness to defend themselves.</p>
-                    <div class="field-insight">
-                        <span class="fi-label">Field Insight</span>
-                        "We can't afford IT guys. We just hope we don't get hacked."<br>— Retail Owner, Nairobi Market
-                    </div>
-                    <ul class="mps-bullets">
-                        <li>60%+ of SMEs reported a breach in the last 3 years</li>
-                        <li>43% of all cyberattacks target small businesses</li>
-                        <li>Kenya lost <strong>KSh 29.9B</strong> to cybercrime in 2025</li>
-                        <li>60% of breached SMEs close within 6 months</li>
-                        <li>0% of SMEs we interviewed had a security budget</li>
-                    </ul>
-                </div>
-
-                <div class="mps-card reveal-card">
-                    <div class="mps-num">03</div>
-                    <div class="mps-icon-big">💡</div>
-                    <h3>Solution</h3>
-                    <p>ShieldOS — a hardened Linux OS that installs on any refurbished PC in 15 minutes via USB. No IT engineer. No subscription. Blocks phishing, encrypts data, whitelists apps automatically.</p>
-                    <div class="proto-pill">
-                        <span class="pp-dot"></span>
-                        <span>ShieldOS v1.0 — In Development</span>
-                    </div>
-                </div>
-
+            <div class="quote-block">
+                <blockquote>"They are not too small to be targeted. They don't realise they are being attacked by automated bots. They are not too small — they are low-hanging fruit."</blockquote>
+                <div class="quote-author">— Najoli Light, Cybersecurity Expert · Interviewed by Team Vertex, Nairobi 2026</div>
             </div>
 
-            <!-- Values strip -->
-            <div class="values-strip">
-                <div class="vs-label">Our Values</div>
-                <div class="vs-items">
-                    <div class="vs-item"><span>🤝</span> Teamwork</div>
-                    <span class="vs-sep">·</span>
-                    <div class="vs-item"><span>✅</span> Integrity</div>
-                    <span class="vs-sep">·</span>
-                    <div class="vs-item"><span>🔐</span> Security</div>
-                    <span class="vs-sep">·</span>
-                    <div class="vs-item"><span>🚀</span> Innovation</div>
+            <div class="cause-grid">
+                <div class="cause-card">
+                    <h3>No Awareness</h3>
+                    <p>80% of SMEs believe they are too small to be a target.</p>
+                </div>
+                <div class="cause-card">
+                    <h3>No Budget</h3>
+                    <p>Cybersecurity is never a line item for small businesses.</p>
+                </div>
+                <div class="cause-card">
+                    <h3>No Skills</h3>
+                    <p>No dedicated IT staff, no policy, no incident response plan.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -244,7 +177,7 @@
 
             <div class="section-eyebrow">// THE TEAM</div>
             <h2 class="section-h2">Six Minds.<br /><span class="grad-text">One Vision.</span></h2>
-            <p class="section-sub">Six students. Six roles. One mission — building ShieldOS to protect Nairobi's SMEs.</p>
+            <p class="section-sub" style="max-width: 700px; margin: 0 auto 40px auto; font-size: 1.1rem;">We are just students who came together to build something that actually matters. No professional backgrounds—just curiosity, dedication, and the drive to protect Nairobi's SMEs.</p>
 
             <!-- Member cards grid -->
             <div class="members-list">
@@ -467,101 +400,72 @@
     </section>
 
     <!-- ── PROJECTS ── -->
-    <section id="projects" class="section projects-section">
+    <section id="projects" class="section solution-section">
         <div class="container">
+            <div class="section-eyebrow">// OUTCOME</div>
+            <h2 class="section-h2">The Solution <span class="grad-text">We Built</span></h2>
+            <h3 class="solution-tagline">ShieldOS · Protect. Operate. Grow.</h3>
+            
+            <p class="solution-desc">ShieldOS is not an antivirus. It is not an app. It is a complete hardened Linux operating system — built from the ground up for Kenyan SMEs running on refurbished hardware. It replaces vulnerable Windows in 15 minutes via USB. It runs silently. It blocks threats automatically. And it costs absolutely nothing.</p>
 
-            <div class="section-eyebrow">// OUR PROJECT</div>
-            <h2 class="section-h2">What We <span class="grad-text">Built</span></h2>
-            <p class="section-sub">ShieldOS — a hardened Linux OS built specifically to protect Nairobi's small businesses from cyberattacks. Free. Offline. Ready in 15 minutes.</p>
+            <div class="compliance-badge">
+                <span class="cb-icon">✓</span> Kenya Data Protection Act 2019 Compliant
+            </div>
 
-            <!-- Impact numbers -->
-            <div class="shield-stats">
-                <div class="ss-item">
-                    <div class="ss-num">15 min</div>
-                    <div class="ss-lbl">USB Install Time</div>
+            <div class="feature-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">⚡</div>
+                    <h4>15-Min USB Install</h4>
+                    <p>Deploys on any refurbished 4th Gen Intel PC, zero IT engineer needed.</p>
                 </div>
-                <div class="ss-div"></div>
-                <div class="ss-item">
-                    <div class="ss-num">KSh 0</div>
-                    <div class="ss-lbl">Cost to Any SME</div>
+                <div class="feat-card">
+                    <div class="feat-icon">🛡️</div>
+                    <h4>DNS Phishing Filter</h4>
+                    <p>NextDNS blocks malicious sites before they even load on the device.</p>
                 </div>
-                <div class="ss-div"></div>
-                <div class="ss-item">
-                    <div class="ss-num">29.9B</div>
-                    <div class="ss-lbl">KSh Lost to Cybercrime</div>
+                <div class="feat-card">
+                    <div class="feat-icon">🔐</div>
+                    <h4>Full Disk Encryption</h4>
+                    <p>LUKS encryption by default, protecting sensitive business records if stolen.</p>
                 </div>
-                <div class="ss-div"></div>
-                <div class="ss-item">
-                    <div class="ss-num">60%+</div>
-                    <div class="ss-lbl">Nairobi SMEs Breached</div>
+                <div class="feat-card">
+                    <div class="feat-icon">📋</div>
+                    <h4>App Whitelisting</h4>
+                    <p>Only approved business apps can run, rendering ransomware executables useless.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🔒</div>
+                    <h4>Read-Only Root</h4>
+                    <p>System files cannot be modified by malware, providing permanent protection.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🌐</div>
+                    <h4>Open Source</h4>
+                    <p>No vendor lock-in, any developer can maintain and adapt it freely.</p>
                 </div>
             </div>
 
-            <!-- Main showcase -->
-            <div class="shield-showcase reveal-card">
+            <div class="tech-stack-row">
+                <span>Debian Stable</span>
+                <span>XFCE Desktop</span>
+                <span>LUKS Encryption</span>
+                <span>NextDNS</span>
+                <span>AppArmor</span>
+                <span>Restic Backup</span>
+                <span>VeraCrypt</span>
+                <span>LibreOffice</span>
+                <span>LibreWolf</span>
+            </div>
 
-                <!-- Left: info -->
-                <div class="shield-info">
-                    <div class="shield-badge">
-                        <span class="sb-dot"></span>
-                        <span>ShieldOS v1.0 — In Active Development</span>
-                    </div>
-                    <h3 class="shield-title">ShieldOS</h3>
-                    <p class="shield-desc">A hardened Linux operating system that installs on any refurbished PC via a USB drive. No IT engineer needed. No subscription. No internet required to run.</p>
-                    <p class="shield-desc">Designed from the ground up for Nairobi's small business owners — people with no technical background who just need their business to stay safe.</p>
-
-                    <div class="shield-features">
-                        <div class="sf-item">
-                            <span class="sf-icon">🛡️</span>
-                            <div>
-                                <div class="sf-name">Phishing Blocker</div>
-                                <div class="sf-desc">Blocks known phishing domains at the OS level — before the browser even loads.</div>
-                            </div>
-                        </div>
-                        <div class="sf-item">
-                            <span class="sf-icon">🔐</span>
-                            <div>
-                                <div class="sf-name">Full Disk Encryption</div>
-                                <div class="sf-desc">Business data encrypted by default. If the PC is stolen, the data is safe.</div>
-                            </div>
-                        </div>
-                        <div class="sf-item">
-                            <span class="sf-icon">📋</span>
-                            <div>
-                                <div class="sf-name">App Whitelisting</div>
-                                <div class="sf-desc">Only approved applications run. Ransomware and malware cannot execute.</div>
-                            </div>
-                        </div>
-                        <div class="sf-item">
-                            <span class="sf-icon">🔄</span>
-                            <div>
-                                <div class="sf-name">Auto Security Updates</div>
-                                <div class="sf-desc">Security patches applied automatically when internet is available.</div>
-                            </div>
-                        </div>
-                        <div class="sf-item">
-                            <span class="sf-icon">📖</span>
-                            <div>
-                                <div class="sf-name">Built-in SME Guide</div>
-                                <div class="sf-desc">Plain-language security manual pre-installed — no internet needed to read it.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="shield-stack">
-                        <span>Linux</span><span>Ubuntu Base</span><span>AppArmor</span><span>LUKS Encryption</span><span>UFW Firewall</span>
-                    </div>
-                </div>
-
-                <!-- Right: Live Prototype -->
-                <div class="shield-terminal prototype-frame">
+            <div class="shield-showcase reveal-card" style="margin-top: 40px;">
+                <div class="shield-terminal prototype-frame" style="width: 100%;">
                     <div class="st-bar">
                         <div class="st-dots"><span></span><span></span><span></span></div>
-                        <div class="st-title">ShieldOS — Live Interactive Demo <a href="./shieldos/index.html" target="_blank" style="color:var(--cyan); margin-left:10px;">(Fullscreen ⇱)</a></div>
+                        <div class="st-title">ShieldOS — Live Interactive Boot Sequence <a href="./shieldos/index.html" target="_blank" style="color:var(--cyan); margin-left:10px;">(Fullscreen ⇱)</a></div>
                     </div>
-                    <iframe src="./shieldos/index.html" frameborder="0" style="width: 100%; height: 480px; border-radius: 0 0 var(--r) var(--r); background: var(--bg); display: block;"></iframe>
+                    <iframe src="./shieldos/index.html" frameborder="0" style="width: 100%; height: 600px; border-radius: 0 0 var(--r) var(--r); background: var(--bg); display: block;"></iframe>
                 </div>
-            </div><!-- /shield-showcase -->
+            </div>
 
         </div>
     </section>
@@ -664,10 +568,34 @@
                     <a href="https://www.instagram.com/vertex_alu" target="_blank">📸 Instagram</a>
                     <a href="https://www.youtube.com/channel/UCPRgX_QsDBfx6Khj46stI2w" target="_blank">▶ YouTube</a>
                 </div>
-                <div class="sf-copy">Built by Team Vertex · E-Lab Challenge 06 — Digital Print</div>
+    <footer class="pro-footer">
+        <div class="container pf-grid">
+            <div class="pf-brand">
+                <img src="images/logo.png" alt="Vertex Logo" class="pf-logo" onerror="this.style.display='none'">
+                <h3>Team Vertex</h3>
+                <p>Empowering SMEs through accessible, robust, and cost-free digital security solutions. Built at African Leadership University.</p>
+            </div>
+            <div class="pf-links">
+                <h4>Navigation</h4>
+                <a href="#landing">Home</a>
+                <a href="#identity">The Problem</a>
+                <a href="#projects">The Solution</a>
+                <a href="#team">Our Team</a>
+            </div>
+            <div class="pf-socials">
+                <h4>Follow Us</h4>
+                <div class="pf-social-icons">
+                    <a href="#" class="btn-outline" style="padding: 6px 16px; font-size: 0.9rem;">Instagram</a>
+                    <a href="#" class="btn-outline" style="padding: 6px 16px; font-size: 0.9rem;">LinkedIn</a>
+                </div>
             </div>
         </div>
+        <div class="pf-bottom">
+            <p>&copy; 2026 Team Vertex. All Rights Reserved. Not for commercial distribution.</p>
+        </div>
     </footer>
+
+    <div class="cursor"></div>
 
     <script src="app.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
