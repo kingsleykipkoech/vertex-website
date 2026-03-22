@@ -203,18 +203,18 @@ function onYouTubeIframeAPIReady() {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             const el = entry.target;
-            const target = parseInt(el.dataset.target);
+            const target = parseFloat(el.dataset.target);
+            const isDecimal = el.dataset.target.includes('.');
             const dur = target > 100 ? 1800 : 900;
-            const step = dur / 60;
             let current = 0;
             const inc = target / (dur / (1000 / 60));
             const timer = setInterval(() => {
                 current += inc;
                 if (current >= target) {
-                    el.textContent = target.toLocaleString();
+                    el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
                     clearInterval(timer);
                 } else {
-                    el.textContent = Math.floor(current).toLocaleString();
+                    el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
                 }
             }, 1000 / 60);
             observer.unobserve(el);
