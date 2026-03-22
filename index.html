@@ -10,31 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- Animated Background Glows -->
-    <div class="bg-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
 
-    <!-- Custom cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-trail" id="cursorTrail"></div>
-
-    <!-- BOOT OVERLAY (disappears after animation) -->
-    <div class="boot-overlay" id="bootOverlay">
-        <div class="boot-inner">
-            <div class="boot-logo">V</div>
-            <div class="boot-lines" id="bootLines"></div>
-        </div>
-    </div>
 
     <!-- ──────────────────────────────────────────
      NAV
@@ -63,12 +46,7 @@
      LANDING — unique cinematic entry
 ────────────────────────────────────────── -->
     <section id="landing" class="section landing">
-        <!-- YouTube video background -->
-        <div id="yt-hero-bg"></div>
-        <!-- Fallback particle canvas (shown until YT loads) -->
-        <canvas id="matrixCanvas" class="matrix-bg"></canvas>
-        <!-- Overlay for text readability -->
-        <div class="hero-video-overlay"></div>
+
 
         <div class="landing-grid">
             <!-- Left — Hero Images -->
@@ -107,7 +85,7 @@
                     </div>
                     <div class="ls-div"></div>
                     <div class="ls-item">
-                        <span class="ls-num" data-target="29">0</span>
+                        <span class="ls-num" data-target="29.9">0</span>
                         <span class="ls-lbl">Billion KSh Lost</span>
                     </div>
                 </div>
@@ -137,8 +115,8 @@
                 <div class="tcs-text">
                     <div class="section-eyebrow">// OUR MISSION</div>
                     <h2 class="section-h2">Empowering SMEs,<br/><span class="grad-text">Securing the Future</span></h2>
-                    <p class="section-sub">Our mission is to empower small businesses in East Africa by closing the cybersecurity knowledge gap through resilient, accessible tools and digital education.</p>
-                    <p class="section-sub">We envision an ecosystem where every SME operates with enterprise-grade security awareness—where digital risks no longer threaten the livelihood of entrepreneurs.</p>
+                    <p class="section-sub">Our mission is to advocate for a digital security and literacy platform for small businesses across Nairobi, ensuring they can leverage technology to empower them against the threat from cyber vulnerability.</p>
+                    <p class="section-sub">We envision an ecosystem where every SME operates with enterprise-grade security awareness — where digital risks no longer threaten the livelihood of entrepreneurs. Our goal: reduce reported cybersecurity attacks by at least 25% within 2 years.</p>
                     <div class="tcs-quote">"Empowering businesses, securing minds" 🌱</div>
                 </div>
                 <div class="tcs-visual">
@@ -158,7 +136,7 @@
                     <span class="stat-desc">of Nairobi SMEs reported phishing, ransomware or a data breach in the last 3 years</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-large">KSh 29B</span>
+                    <span class="stat-large">KSh 29.9B</span>
                     <span class="stat-desc">lost annually to cybercrime across Kenya in 2025</span>
                 </div>
                 <div class="stat-card">
@@ -436,14 +414,14 @@
                     <p>Only approved business apps can run, rendering ransomware executables useless.</p>
                 </div>
                 <div class="feat-card">
-                    <div class="feat-icon">🔒</div>
-                    <h4>Read-Only Root</h4>
-                    <p>System files cannot be modified by malware, providing permanent protection.</p>
+                    <div class="feat-icon">🔄</div>
+                    <h4>Auto Security Updates</h4>
+                    <p>Automatic threat definitions and system updates keep protection current with zero effort from the user.</p>
                 </div>
                 <div class="feat-card">
-                    <div class="feat-icon">🌐</div>
-                    <h4>Open Source</h4>
-                    <p>No vendor lock-in, any developer can maintain and adapt it freely.</p>
+                    <div class="feat-icon">📖</div>
+                    <h4>Built-in SME Security Guide</h4>
+                    <p>An integrated digital literacy guide helps SME staff understand threats and respond safely — no IT trainer needed.</p>
                 </div>
             </div>
 
@@ -589,7 +567,6 @@
     </footer>
 
     <script src="app.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
 </html>
