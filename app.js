@@ -63,6 +63,7 @@ function onYouTubeIframeAPIReady() {
             autoplay: 1,
             mute: 1,
             loop: 1,
+            start: 5,
             playlist: 'G8_igK93bB0',
             controls: 0,
             showinfo: 0,
